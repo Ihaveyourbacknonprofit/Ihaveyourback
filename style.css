@@ -56,6 +56,8 @@ header {
 .hero p {
   color: #444;
   font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -128,15 +130,7 @@ body.dark {
   color: #f5f5f5;
 }
 
-body.dark header {
-  border-bottom: 1px solid #2a2a2a;
-}
-
-body.dark .hero {
-  background: linear-gradient(to bottom, #15151a, #0d0d10);
-}
-
-/* TEXT FIX */
+/* text */
 body.dark p {
   color: #d6d6d6;
 }
@@ -145,25 +139,36 @@ body.dark h2 {
   color: #ff4d4d;
 }
 
-/* BUTTONS DARK MODE */
+/* header */
+body.dark header {
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* =========================
+   BUTTONS DARK MODE (FIXED)
+========================= */
+
+/* solid button */
 body.dark .btn {
-  background: #fff;
-  color: #000;
-  border: 2px solid #fff;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
 }
 
-body.dark .btn:hover {
-  opacity: 0.85;
-}
-
-/* IMPORTANT FIX: Learn More button */
+/* outline button FIX (Learn More issue solved) */
 body.dark .btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
 }
 
+/* hover for outline */
 body.dark .btn-outline:hover {
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+/* safety override */
+body.dark .btn.btn-outline {
+  color: #ffffff !important;
 }
