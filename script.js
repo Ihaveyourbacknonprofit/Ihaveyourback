@@ -1,19 +1,28 @@
 
 // =========================
-// GLOBAL THEME TOGGLE
+// THEME TOGGLE (GLOBAL)
 // =========================
 window.toggleTheme = function () {
 
   document.body.classList.toggle("dark");
 
-  const btn = document.querySelector(".theme-toggle");
+  const isDark = document.body.classList.contains("dark");
 
-  if (document.body.classList.contains("dark")) {
-    btn.innerHTML = "☀️ Light Mode";
-    localStorage.setItem("theme", "dark");
-  } else {
-    btn.innerHTML = "🌙 Dark Mode";
-    localStorage.setItem("theme", "light");
+  // Save preference
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  // Move switch visually (optional safety sync)
+  const thumb = document.querySelector(".switch-thumb");
+  const track = document.querySelector(".switch-track");
+
+  if (thumb && track) {
+    if (isDark) {
+      thumb.style.left = "33px";
+      track.style.background = "#c40000";
+    } else {
+      thumb.style.left = "3px";
+      track.style.background = "#ddd";
+    }
   }
 
 };
@@ -22,42 +31,109 @@ window.toggleTheme = function () {
 // =========================
 // LOAD SAVED THEME
 // =========================
-window.addEventListener("load", () => {
+function loadTheme() {
 
-  const savedTheme = localStorage.getItem("theme");
+  const saved = localStorage.getItem("theme");
 
-  if (savedTheme === "dark") {
+  if (saved === "dark") {
     document.body.classList.add("dark");
   }
 
-  const btn = document.querySelector(".theme-toggle");
+  // sync switch position on load
+  const thumb = document.querySelector(".switch-thumb");
+  const track = document.querySelector(".switch-track");
 
-  if (btn) {
-    btn.innerHTML = document.body.classList.contains("dark")
-      ? "☀️ Light Mode"
-      : "🌙 Dark Mode";
+  if (thumb && track) {
+    if (document.body.classList.contains("dark")) {
+      thumb.style.left = "33px";
+      track.style.background = "#c40000";
+    } else {
+      thumb.style.left = "3px";
+      track.style.background = "#ddd";
+    }
   }
+
+}
+
+
+// =========================
+// LOADER
+// =========================
+window.addEventListener("load", () => {
+
+  const loader = document.getElementById("loader");
+
+  if (loader) {
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 600);
+  }
+
+  loadTheme();
+  revealOnScroll();
 
 });
 
 
 // =========================
-// CARD ANIMATION
+// SCROLL REVEAL
 // =========================
-window.addEventListener("load", () => {
+function revealOnScroll() {
 
-  const cards = document.querySelectorAll(".card");
+  const elements = document.querySelectorAll(".reveal");
 
-  cards.forEach((card, index) => {
+  elements.forEach(el => {
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-    setTimeout(() => {
-      card.style.transition = "0.5s ease";
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }, index * 150);
+    if (top < windowHeight - 100) {
+      el.classList.add("active");
+    }
+
+  });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+
+// =========================
+// HAMBURGER MENU
+// =========================
+window.toggleMenu = function () {
+
+  const nav = document.getElementById("navLinks");
+
+  if (!nav) return;
+
+  if (nav.style.display === "flex") {
+    nav.style.display = "none";
+  } else {
+    nav.style.display = "flex";
+  }
+
+};
+
+
+// =========================
+// BUTTON CLICK FEEDBACK
+// =========================
+window.addEventListener("DOMContentLoaded", () => {
+
+  const buttons = document.querySelectorAll(".btn, .donate-btn, .contact-form button");
+
+  buttons.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      btn.style.transform = "scale(0.96)";
+
+      setTimeout(() => {
+        btn.style.transform = "";
+      }, 120);
+
+    });
 
   });
 
@@ -69,7 +145,7 @@ window.addEventListener("load", () => {
 // =========================
 window.addEventListener("scroll", () => {
 
-  const header = document.querySelector("header");
+  const header = document.querySelector(".navbar");
 
   if (!header) return;
 
