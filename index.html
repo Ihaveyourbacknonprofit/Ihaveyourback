@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,28 +19,39 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
 
-    <div class="title">
-      I HAVE YOUR BACK
-    </div>
 
-    <!-- LOGO (TOP RIGHT) -->
-    <div class="logo">
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <div class="logo-area">
       <img src="logo.png" alt="Logo">
+      <div class="title">I HAVE YOUR BACK</div>
     </div>
 
-    <!-- DARK MODE BUTTON -->
-    <button class="theme-toggle" onclick="toggleTheme()">
-      🌙 Dark Mode
-    </button>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- THEME SWITCH -->
+    <div class="theme-switch" onclick="toggleTheme()">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
 
   </header>
 
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero reveal">
 
     <h1>Supporting Communities With Compassion</h1>
 
@@ -55,13 +67,15 @@
 
       <a href="#about" class="btn btn-outline">Learn More</a>
 
+      <a href="#" class="donate-btn">Donate</a>
+
     </div>
 
   </section>
 
 
   <!-- ABOUT -->
-  <section class="section" id="about">
+  <section class="section reveal" id="about">
 
     <h2>About Us</h2>
 
@@ -93,17 +107,21 @@
 
 
   <!-- CONTACT -->
-  <section class="section" id="contact">
+  <section class="section reveal" id="contact">
 
     <h2>Contact Us</h2>
 
-    <div class="contact-box">
+    <form class="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
 
-      <p><strong>Email:</strong> IHAVEYOURBACKGNK@gmail.com</p>
-      <p><strong>Phone:</strong> (708) 477-2853</p>
-      <p><strong>Location:</strong> Des Moines, Washington</p>
+      <input type="text" name="name" placeholder="Your Name" required>
 
-    </div>
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
 
   </section>
 
@@ -114,7 +132,7 @@
   </footer>
 
 
-  <!-- JS -->
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 
 </body>
