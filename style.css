@@ -1,79 +1,100 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+
+/* =========================
+   MODERN DARK MODE SYSTEM
+========================= */
+
+body.dark {
+  background: #0d0d10;
+  color: #f5f5f5;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-body {
-  background: white;
-  color: black;
-  line-height: 1.6;
+/* GLOBAL TEXT CONTROL */
+body.dark p {
+  color: #d6d6d6;
 }
 
-header {
-  padding: 20px;
-  border-bottom: 1px solid #eee;
+body.dark span {
+  color: inherit;
 }
 
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* HEADINGS */
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #ffffff;
 }
 
-.logo-area img {
-  width: 40px;
-  height: 40px;
+/* KEEP BRAND RED ACCENT */
+body.dark .section h2,
+body.dark .card h3,
+body.dark .title {
+  color: #ff4d4d;
 }
 
-.hero {
-  padding: 100px 20px;
-  text-align: center;
+/* HEADER */
+body.dark header {
+  background: #15151a;
+  border-bottom: 1px solid #2a2a2a;
 }
 
-.hero h2 {
-  color: #c40000;
-  font-size: 40px;
-  margin-bottom: 10px;
+/* HERO */
+body.dark .hero {
+  background: linear-gradient(to bottom, #15151a, #0d0d10);
 }
 
-.hero p {
-  color: #444;
-  font-size: 18px;
+/* CARDS */
+body.dark .card {
+  background: #1a1a20;
+  color: #f5f5f5;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.5);
 }
 
-.hero-buttons {
-  margin-top: 20px;
+body.dark .card p {
+  color: #cfcfcf;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin: 5px;
-  background: black;
+/* CONTACT BOX */
+body.dark .contact-box {
+  background: #c40000;
   color: white;
-  text-decoration: none;
-  border-radius: 999px;
 }
 
-.btn-outline {
+/* FOOTER */
+body.dark footer {
+  color: #aaaaaa;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* BUTTONS (clean contrast) */
+body.dark .btn {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+
+body.dark .btn:hover {
+  background: #e6e6e6;
+}
+
+body.dark .btn-outline {
   background: transparent;
-  border: 2px solid black;
-  color: black;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
-section {
-  padding: 60px 20px;
+body.dark .btn-outline:hover {
+  background: #ffffff;
+  color: #000000;
 }
 
-h2 {
-  margin-bottom: 10px;
-  color: #c40000;
+/* THEME BUTTON */
+body.dark .theme-toggle {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
 }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid #eee;
+body.dark .theme-toggle:hover {
+  transform: scale(1.05);
 }
