@@ -21,21 +21,25 @@
   <!-- HEADER -->
 
   <header>
-
-  <div class="title">
-    I HAVE YOUR BACK
-  </div>
-
-  <div class="logo">
-    <img src="logo.png" alt="Logo">
-  </div>
-
-  <button class="theme-toggle" onclick="toggleTheme()">
-    Dark Mode
-  </button>
-
+  
+    <!-- LEFT: LOGO -->
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+  
+    <!-- RIGHT: THEME TOGGLE -->
+    <div class="theme-control">
+  
+      <span class="theme-label">Dark Mode</span>
+  
+      <label class="switch">
+        <input type="checkbox" onclick="toggleTheme()">
+        <span class="slider"></span>
+      </label>
+  
+    </div>
+  
   </header>
-
 
   <!-- HERO SECTION -->
 
