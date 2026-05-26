@@ -7,7 +7,8 @@
 
   <title>I Have Your Back</title>
 
-  <meta name="description" content="I Have Your Back is a nonprofit organization supporting families and communities through outreach, compassion, and meaningful action.">
+  <meta name="description"
+    content="I Have Your Back is a nonprofit organization supporting families and communities through outreach, compassion, and meaningful action.">
 
   <link rel="icon" href="favicon.ico">
 
@@ -15,33 +16,52 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="preload" as="image" href="logo.png">
 </head>
 
 <body>
 
   <!-- HEADER -->
   <header id="header">
-  
+
     <div class="logo-area">
       <img src="logo.png" alt="I Have Your Back nonprofit logo">
       <div class="title">I HAVE YOUR BACK</div>
     </div>
-  
-    <!-- HAMBURGER ICON (mobile only) -->
-    <div class="hamburger" id="hamburger">
-      ☰
-    </div>
-  
-    <!-- NAVIGATION -->
-    <nav id="nav">
-      <a href="#about">About</a>
-      <a href="#impact">Impact</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  
-  </header>
 
+    <div class="header-right">
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+        🌙
+      </button>
+      
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="nav">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+
+    <div class="donate-wrapper">
+    <button class="donate-btn" id="donateBtn">Donate</button>
+  
+    <div class="donate-dropdown" id="donateDropdown">
+      <a href="https://www.paypal.me/georgecoleman7591" target="_blank">PayPal</a>
+      <a href="https://cash.app/$jim5think" target="_blank">Cash App</a>
+    </div>
+  </div>
+    
+  </header>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -57,8 +77,7 @@
 
       <p>
         I Have Your Back is a nonprofit organization dedicated to uplifting
-        communities through compassion, outreach, support programs,
-        and meaningful action.
+        communities through compassion, outreach, support programs, and meaningful action.
       </p>
 
       <div class="hero-buttons">
@@ -79,7 +98,6 @@
     </div>
 
   </section>
-
 
   <!-- ABOUT -->
   <section class="section reveal" id="about">
@@ -115,9 +133,7 @@
       </div>
 
     </div>
-
   </section>
-
 
   <!-- IMPACT -->
   <section class="impact-section reveal" id="impact">
@@ -149,11 +165,9 @@
       </div>
 
     </div>
-
   </section>
 
-
-  <!-- CONTACT -->
+  <!-- CONTACT + FORMSPREE -->
   <section class="section reveal" id="contact">
 
     <div class="section-top">
@@ -161,21 +175,32 @@
       <h2>We’re Here To Help</h2>
     </div>
 
-    <div class="contact-box">
+    <!-- FORMSPREE FORM -->
+    <form class="contact-form"
+          action="https://formspree.io/f/xeedpkaa"
+          method="POST">
+
+      <input type="text" name="name" placeholder="Your Name/Company" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+
+    </form>
+
+    <!-- OPTIONAL EXTRA CONTACT INFO -->
+    <div class="contact-box" style="margin-top: 40px;">
 
       <div class="contact-item">
         <span>Email</span>
-        <p>Info@ihaveyourback.org</p>
-      </div>
-
-      <div class="contact-item">
-        <span>Secondary Email</span>
-        <p>Ihaveyourbackgnk@gmail.com</p>
+        <p><a href="mailto:Info@ihaveyourback.org">Info@ihaveyourback.org</a></p>
       </div>
 
       <div class="contact-item">
         <span>Phone</span>
-        <p>+1 (708) 477-2853</p>
+        <p><a href="tel:+17084772853">+1 (708) 477-2853</a></p>
       </div>
 
       <div class="contact-item">
@@ -187,6 +212,12 @@
 
   </section>
 
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <h2>Ready To Support Our Mission?</h2>
+    <p>Together we can strengthen communities, support families, and create positive change.</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -200,7 +231,6 @@
     <p>© 2026 I Have Your Back A Nonprofit Corporation — All Rights Reserved</p>
 
   </footer>
-
 
   <script src="script.js"></script>
 
